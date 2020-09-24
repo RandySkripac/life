@@ -5,7 +5,6 @@
  * This is a program developed to help the dumbass, Randy Skripac, achieve his
  * life goals. It uses an ArrayList and other global variables to determine what Randy
  * should do today.
- *
  * @author Randy Skripac
  *
  */
@@ -30,13 +29,15 @@ public class Life {
      * where I need 8 hours for a task.
      * */
     public static boolean WorkDay = false;
+    
+    public static int day = 0;
      
     //This method sets up goals and StartingSites
     public static void SetUp() {
         //these are broad or need extra planning
         goals.add("get_big");
         goals.add("eat_right");
-      //these are available for randomness each day
+        //these are available for randomness each day
         goals.add("golf");
         goals.add("grades/career");
         goals.add("music");
@@ -62,26 +63,33 @@ public class Life {
         Courses.add("Rolling Meadows");
         Courses.add("Homestead Springs");
         Courses.add("The Links at Groveport");
-        Courses.add("Willow Run");
+       
         
-        //Sleeping will be from midnight till 8am
-        for (int i=0; i<8; i++) {
+        //Sleeping will be from 21 till 5
+        for (int i=0; i<5; i++) {
+        	hours[i] = "Sleep";
+        }
+        for (int i=21; i<24; i++) {
         	hours[i] = "Sleep";
         }
         //Morning routine
-        hours[8]  = "Food/Clean/Brush/Stretch";
-        //Lunch
+        hours[5]  = "Food/Clean/Brush/Stretch";
+        
         if (!WorkDay) {
-        	hours[14] = "Lunch";
-        	for (int i = 20; i<24;i++ ) {
+        	
+        	for (int i = 6; i<9;i++ ) {
         		hours[i] = "free";
         	}
         }else {
-        	for(int i = 9;i<17;i++) {
+        	for(int i = 6;i<15;i++) {
         		hours[i] = "work";
         	}
+        	
         }
-        hours[17] = "dinner";
+        //Lunch
+        hours[12] = "Lunch";
+        hours[15] = "dinner";
+        
         StartingSites.add("fantasy");
         StartingSites.add("eating");
         StartingSites.add("gmail");
@@ -92,12 +100,14 @@ public class Life {
         Exercises.add(pushup);
         Workout curl = new Workout("curl",1,4,20,"10 each arm");
         Exercises.add(curl);
-        Workout crunch = new Workout ("crunch",1,2,50,"dont let your lower back come off the ground. You should feel it in your upper abs.");
+        Workout crunch = new Workout ("crunch",2,2,50,"dont let your lower back come off the ground. You should feel it in your upper abs.");
         Exercises.add(crunch);
-        Workout sixInches = new Workout ("sixInches",1,2,60,"in seconds");
+        Workout sixInches = new Workout ("sixInches",2,2,60,"in seconds");
         Exercises.add(sixInches);
         Workout slDeadlift = new Workout ("slDeadlift",2,3,15,"straight legs, use lower back to lift up dumbells in hands.");
         Exercises.add(slDeadlift);
+        Workout cardio = new Workout ("cardio",3,1,60,"go do something");
+        Exercises.add(cardio);
         // put all workouts in exercises array
         
     }
@@ -171,20 +181,20 @@ public class Life {
     	
     	//Plan Workout
     	
-    	int day = 0;
+    	 
     	 Date today = new Date();
          SimpleDateFormat df = new SimpleDateFormat("E");
          if (df.format(today).contentEquals("Mon") || df.format(today).contentEquals("Thu")) {
          	day = 1;
-         	hours[22] = "Workout";
+         	hours[16] = "Workout";
          }else if (df.format(today).contentEquals("Tue") || df.format(today).contentEquals("Fri")) {
          	day = 2;
-         	hours[22] = "Workout";
+         	hours[16] = "Workout";
          }else if (df.format(today).contentEquals("Wed") || df.format(today).contentEquals("Sat")) {
          	day = 3;
-         	hours[22] = "Workout";
+         	hours[16] = "Workout";
          }else {
-         	hours[22] = "free";
+         	hours[16] = "free";
          }
     	
     	
@@ -199,16 +209,23 @@ public class Life {
         //If it's a workday and we're golfing, then we only have time for golf. 
         if (WorkDay) {
         	if(goals.get(activity1).equals("golf")){
-        		for(int i = 17;i<22;i++) {
+        		for(int i = 15;i<19;i++) {
         			hours[i] = "golf";
         		}
-        		hours[23] = "free";
+        		if (day == 0) {
+        			hours[19] = "free";
+        		}else {
+        			hours[19] = "workout";
+        		}
+        		
         	//if it's not golf we'll have a little more free time
         	}else {
+        		hours[17] = goals.get(activity1);
         		hours[18] = goals.get(activity1);
-        		hours[19] = goals.get(activity1);
-        		hours[20] = "free";
+        		hours[19] = "free";
+        		
         	}
+        	hours[20] = "read";
         }
         
         
@@ -241,40 +258,40 @@ public class Life {
         		int rand = (int) Math.floor(Math.random() * ((((Courses.size()-1) - 0) + 1)) + 0);
         		course = Courses.get(rand);
         		System.out.println(course);
+        		hours[8] = "workout";
         		hours[9] = "golf";
         		hours[10] = "golf";
         		hours[11] = "golf";
         		hours[12] = "golf";
         		hours[13] = "golf";
         		hours[14] = "lunch";
-        		hours[15] = goals.get(second);
         		hours[16] = goals.get(second);
+        		hours[17] = goals.get(second);
         		hours[18] = goals.get(third);
         		hours[19] = goals.get(third);
-        		hours[20] = "free";
+        		hours[20] = "read";
         		//All of this takes care of the occurrence of golf in any of the activities
         		
         	}else {
         		hours[9] = "free";
         		hours[10] = "free";
         		hours[11] = "free";
-        		hours[12] = goals.get(activity1);
         		hours[13] = goals.get(activity1);
-        		hours[14] = "lunch";
-        		hours[15] = goals.get(activity2);
+        		hours[14] = goals.get(activity1);
         		hours[16] = goals.get(activity2);
+        		hours[17] = goals.get(activity2);
         		hours[18] = goals.get(activity3);
         		hours[19] = goals.get(activity3);
+        		hours[20] = "read";
         	}
         }
-        hours[21] = "free";
-        hours[23] = "free";
+        
        //All the hours are assigned a task at this point
         
         for (int i =0; i<24; i++) {
         	System.out.println(i + "--" + hours[i]);
         }
-        
+        day = day -3;
         if (day != 0) {
         	for(int i = 0; i<Exercises.size(); i++) {
         		if (Exercises.get(i).day == day) {
