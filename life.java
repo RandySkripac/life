@@ -47,6 +47,7 @@ public class Life {
         goals.add("baseball");
         goals.add("basketball");
         goals.add("soccer");
+        goals.add("Bally");
         //Courses
         Courses.add("Willow Run");
         Courses.add("Glenross");
@@ -291,7 +292,7 @@ public class Life {
         for (int i =0; i<24; i++) {
         	System.out.println(i + "--" + hours[i]);
         }
-        day = day -3;
+        
         if (day != 0) {
         	for(int i = 0; i<Exercises.size(); i++) {
         		if (Exercises.get(i).day == day) {
