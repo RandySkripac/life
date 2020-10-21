@@ -39,14 +39,14 @@ public class Life {
         goals.add("eat_right");
         //these are available for randomness each day
         goals.add("golf");
-        goals.add("grades/career");
-        goals.add("music");
-        goals.add("video_games");
+        //goals.add("grades/career");
+        //goals.add("music");
+        //goals.add("video_games");
         goals.add("punting");
-        goals.add("movies");
-        goals.add("baseball");
-        goals.add("basketball");
-        goals.add("soccer");
+        //goals.add("movies");
+        //goals.add("baseball");
+        //goals.add("basketball");
+        //goals.add("soccer");
         goals.add("Bally");
         //Courses
         Courses.add("Willow Run");
@@ -287,16 +287,19 @@ public class Life {
         	}
         }
         
-       //All the hours are assigned a task at this point
+       //All the hours have been assigned a task at this point, so we can just print them to the console
         
         for (int i =0; i<24; i++) {
         	System.out.println(i + "--" + hours[i]);
         }
         
+        
+        //This prints out what workout I have to do today if any
         if (day != 0) {
         	for(int i = 0; i<Exercises.size(); i++) {
         		if (Exercises.get(i).day == day) {
         			System.out.println(Exercises.get(i).name + ": " + Exercises.get(i).sets + " x " + Exercises.get(i).reps);
+        			System.out.println(Exercises.get(i).description);
         		}
         	}
         }
