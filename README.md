@@ -9,5 +9,5 @@ Future implimentations:
 * Connecting to my SQL Database of golf courses to explain the course that life.java chooses for me to play. 
 * Scrape weather.com and only tell me to play outdoor sports when it won't rain.
 * Impliment User Interface so it's not just a console interaction.
-* 
+
 
