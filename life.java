@@ -41,13 +41,18 @@ public class Life {
         goals.add("golf");
         //goals.add("grades/career");
         //goals.add("music");
-        //goals.add("video_games");
-        goals.add("punting");
-        //goals.add("movies");
-        //goals.add("baseball");
+        goals.add("video_games");
+        //goals.add("punting");
+        goals.add("movies");
+        goals.add("baseball");
         //goals.add("basketball");
         //goals.add("soccer");
-        goals.add("Bally");
+        //goals.add("Bally");
+        goals.add("Soma");
+        //goals.add("League");
+        //goals.add("TV");
+        goals.add("somethingNew");
+        //goals.add("discGolf");
         //Courses
         Courses.add("Willow Run");
         Courses.add("Glenross");
@@ -66,49 +71,104 @@ public class Life {
         Courses.add("The Links at Groveport");
        
         
-        //Sleeping will be from 21 till 5
-        for (int i=0; i<5; i++) {
+        //Sleeping will be from 22 till 6
+        for (int i=0; i<6; i++) {
         	hours[i] = "Sleep";
         }
-        for (int i=21; i<24; i++) {
+        for (int i=22; i<24; i++) {
         	hours[i] = "Sleep";
         }
-        //Morning routine
-        hours[5]  = "Food/Clean/Brush/Stretch";
-        
         if (!WorkDay) {
-        	
-        	for (int i = 6; i<9;i++ ) {
+        	for (int i = 9; i<16;i++ ) {
         		hours[i] = "free";
         	}
         }else {
-        	for(int i = 6;i<15;i++) {
+        	for(int i = 9;i<16;i++) {
         		hours[i] = "work";
         	}
         	
         }
-        //Lunch
-        hours[12] = "Lunch";
-        hours[15] = "dinner";
         
+        
+        if (day ==2) {
+		    //Got to work out in the morning so that equipment is available. 
+		    hours[6]  = "Abs/Food/Clean/Brush/Stretch";
+		    hours[7] = "workout";
+		    hours[8] = "workout";
+		    
+        }else if (day == 1) {
+		    //Morning routine
+		    hours[6]  = "sleepIn";
+		    hours[7] = "sleepIn";
+		    hours[8] = "sleepIn";
+		    hours[9] = "Food/Clean/Brush/Stretch";
+		    hours[11]  =  "Pushups";
+        }else if (day == 3) {
+		    //Morning routine
+		    hours[6]  = "sleepIn";
+		    hours[7] = "sleepIn";
+		    hours[8] = "Food, Brush, Clean, Stretch";
+		    hours[10] = "Pushups";
+        }else if (day == 4) {
+		    //Morning routine
+		    hours[6]  = "sleepIn";
+		    hours[7] = "Food, Brush, Clean, Stretch";
+		    hours[8] = "Workout";
+		    hours[9] = "Workout";
+        }else if (day == 5) {
+		    //Morning routine
+		    hours[6]  = "sleepIn";
+		    hours[7] = "sleepIn";
+		    hours[8] = "food, brush, clean, stretch";
+		    hours[9] = "Workout";
+		    hours[10] = "Workout";
+        }else {
+        	for(int i = 6;i<8;i++) {
+        		hours[i] = "sleepIn";
+        	}
+        	hours[8] = "Abs/Food/Clean/Brush/Stretch";
+        	
+        }
+        hours[16] = "free";
+        hours[12] = "Lunch";
+        hours[17] = "dinner";
+        hours[20] = "free";
+        hours[21] = "read";
         StartingSites.add("fantasy");
         StartingSites.add("eating");
         StartingSites.add("gmail");
         
-        Workout splitSquat = new Workout("splitSquat",2,3,20,"Put one foot on a chair, and the other on the ground. While holding dumbells, do a squat");
-        Exercises.add(splitSquat);
-        Workout pushup = new Workout("pushup",1,4,80,"You know how to do pushups");
+
+        Workout warmUp = new Workout("hips, quads, hams",2,3,8,"");
+        Exercises.add(warmUp);
+        Workout snatchPulls = new Workout("snatchPulls",2,3,6,"keep your back straight, do a deadlift and jump with a shoulder shrug.\n");
+        Exercises.add(snatchPulls);
+        Workout backSquat = new Workout("backSquat",2,4,8,"go lower, do less weight.\n");
+        Exercises.add(backSquat);
+        Workout lunges = new Workout("lunges",2,4,8,"be explosive. Do cycle lunges after with no weight (alternate quilckly).\n");
+        Exercises.add(lunges);
+        Workout jumpSquat = new Workout("backSquat",2,4,10,"jump with dumbells (jump directly into next rep)\n");
+        Exercises.add(jumpSquat);
+        Workout pushup = new Workout("pushup",1,4,50,"You know how to do pushups\n");
         Exercises.add(pushup);
-        Workout curl = new Workout("curl",1,4,20,"10 each arm");
-        Exercises.add(curl);
-        Workout crunch = new Workout ("crunch",2,2,50,"dont let your lower back come off the ground. You should feel it in your upper abs.");
-        Exercises.add(crunch);
-        Workout sixInches = new Workout ("sixInches",2,2,60,"in seconds");
-        Exercises.add(sixInches);
-        Workout slDeadlift = new Workout ("slDeadlift",2,3,15,"straight legs, use lower back to lift up dumbells in hands.");
-        Exercises.add(slDeadlift);
-        Workout cardio = new Workout ("cardio",3,1,60,"go do something");
-        Exercises.add(cardio);
+        Workout pushup2 = new Workout("pushup",3,4,50,"You know how to do pushups\n");
+        Exercises.add(pushup2);
+        Workout bicepts = new Workout("bicepts",5,4,12,"do any bicept workouts\n");
+        Exercises.add(bicepts);
+        Workout back = new Workout("back",5,4,12,"do any back workouts\n");
+        Exercises.add(back);
+        //Workout abs = new Workout ("crunch",2,2,50,"dont let your lower back come off the ground. You should feel it in your upper abs.");
+        //Exercises.add(crunch);
+        //Workout sixInches = new Workout ("sixInches",2,2,60,"in seconds");
+        //Exercises.add(sixInches);
+        Workout warmUp2 = new Workout("hips, quads, hams",4,3,8,"");
+        Exercises.add(warmUp2);
+        Workout splitSquat = new Workout("splitSquat",4,3,12,"While holding dumbells, do a squat w/ one leg. Split cycle jumps in between.\n");
+        Exercises.add(splitSquat);
+        Workout boxJumps = new Workout("boxJumps",4,4,12,"jump up and do the one where you fall and then jump\n");
+        Exercises.add(boxJumps);
+        //Workout cardio = new Workout ("cardio",3,1,60,"go do something");
+        //Exercises.add(cardio);
         // put all workouts in exercises array
         
     }
@@ -163,7 +223,7 @@ public class Life {
     
     public static void main(String[] args) {
     	
-    	//Determine if it's a workday (Again, doesn't need to be working at a job, just any task that takes up an entire day)
+    	//Determine if it's a workday (Again, doesn't need to be working at a job, just any task that improves me at something)
     	System.out.print("Is it a workday? (Y/N):  ");
     	Scanner in = new Scanner(System.in);
     	String input = in.nextLine();
@@ -174,8 +234,7 @@ public class Life {
     	if (input.equalsIgnoreCase("Y")) {
     		WorkDay = true;
     	}
-    	// call Setup
-    	SetUp();
+    	
     	
     	//Course selection
     	String course = "";
@@ -185,20 +244,23 @@ public class Life {
     	 
     	 Date today = new Date();
          SimpleDateFormat df = new SimpleDateFormat("E");
-         if (df.format(today).contentEquals("Mon") || df.format(today).contentEquals("Thu")) {
+         if (df.format(today).contentEquals("Mon") ) {
          	day = 1;
-         	hours[16] = "Workout";
-         }else if (df.format(today).contentEquals("Tue") || df.format(today).contentEquals("Fri")) {
+         	
+         }else if (df.format(today).contentEquals("Tue") ) {
          	day = 2;
-         	hours[16] = "Workout";
-         }else if (df.format(today).contentEquals("Wed") || df.format(today).contentEquals("Sat")) {
-         	day = 3;
-         	hours[16] = "Workout";
-         }else {
-         	hours[16] = "free";
-         }
-    	
-    	
+         	
+         }else if (df.format(today).contentEquals("Thu")){
+        	 day = 3;
+    	 }else if (df.format(today).contentEquals("Fri") ) {
+         	day = 4;
+         	
+         }else if (df.format(today).contentEquals("Sat") ) {
+          	day = 5;
+         	
+         } 
+        // call Setup
+     	SetUp();
     	//Decide which goals to pursue today
         
         
@@ -226,7 +288,7 @@ public class Life {
         		hours[19] = "free";
         		
         	}
-        	hours[20] = "read";
+        	
         }
         
         
@@ -259,6 +321,8 @@ public class Life {
         		int rand = (int) Math.floor(Math.random() * ((((Courses.size()-1) - 0) + 1)) + 0);
         		course = Courses.get(rand);
         		System.out.println(course);
+        		
+        		hours[7] = "workout";
         		hours[8] = "workout";
         		hours[9] = "golf";
         		hours[10] = "golf";
@@ -270,11 +334,11 @@ public class Life {
         		hours[17] = goals.get(second);
         		hours[18] = goals.get(third);
         		hours[19] = goals.get(third);
-        		hours[20] = "read";
+        		
         		//All of this takes care of the occurrence of golf in any of the activities
         		
         	}else {
-        		hours[9] = "free";
+        		
         		hours[10] = "free";
         		hours[11] = "free";
         		hours[13] = goals.get(activity1);
@@ -283,7 +347,7 @@ public class Life {
         		hours[17] = goals.get(activity2);
         		hours[18] = goals.get(activity3);
         		hours[19] = goals.get(activity3);
-        		hours[20] = "read";
+        		
         	}
         }
         
@@ -302,7 +366,9 @@ public class Life {
         			System.out.println(Exercises.get(i).description);
         		}
         	}
+        	
         }
+        System.out.println("Do the app's abs exercises every other day");
         in.close();
     }
 }
